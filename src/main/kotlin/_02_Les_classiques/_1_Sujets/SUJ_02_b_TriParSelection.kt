@@ -3,6 +3,7 @@ package _02_Les_classiques._1_Sujets
 import _10_Demos_et_tests.DataTestListList
 import _10_Demos_et_tests.demoEnLot
 import _10_Demos_et_tests.testerEnLot
+import kotlin.math.min
 
 /* -----------------------
     Fonction à développer
@@ -20,7 +21,18 @@ fun triParSelection(liste: List<Int>): MutableList<Int> {
     // Copie de la liste :
     val listeCopie = liste.toMutableList()
 
+    for(i in 0..<listeCopie.size){
+        var minIndex = i
+        for(j in i + 1 until listeCopie.size){
+            if(listeCopie[j] < listeCopie[minIndex])
+                minIndex = j
+        }
+        val temp = listeCopie[i]
+        listeCopie[i] = listeCopie[minIndex]
+        listeCopie[minIndex] = temp }
+
     // Algorithme de tri :
+
     // A COMPLETER ICI
 
     return listeCopie
